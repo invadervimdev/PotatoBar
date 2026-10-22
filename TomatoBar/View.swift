@@ -56,19 +56,35 @@ private struct IntervalsView: View {
 
 private struct SettingsView: View {
     @EnvironmentObject var timer: TBTimer
+    @EnvironmentObject var focus: PBFocus
     @ObservedObject private var launchAtLogin = LaunchAtLogin.observable
+    @State private var shortcutsList: [String] = PBFocus.fetchInstalledShortcuts()
 
     var body: some View {
         VStack {
             KeyboardShortcuts.Recorder(for: .startStopTimer) {
                 Text(NSLocalizedString("SettingsView.shortcut.label",
                                        comment: "Shortcut label"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            Text(NSLocalizedString("SettingsView.shortcutsScript.label",
+                                   comment: "Shortcuts script label"))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Form {
+                Picker("", selection: $focus.shortcutsScript) {
+                    Text("None (Disabled)").tag("")
+                    
+                    ForEach(shortcutsList, id: \.self) { name in
+                        Text(name).tag(name)
+                    }
+                }
+                .labelsHidden()
+                .frame(maxWidth: 150, alignment: .trailing)
             }
             Toggle(isOn: $timer.stopAfterBreak) {
                 Text(NSLocalizedString("SettingsView.stopAfterBreak.label",
                                        comment: "Stop after break label"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }.toggleStyle(.switch)
             Toggle(isOn: $timer.showTimerInMenuBar) {
                 Text(NSLocalizedString("SettingsView.showTimerInMenuBar.label",
@@ -131,6 +147,7 @@ private enum ChildView {
 
 struct TBPopoverView: View {
     @ObservedObject var timer = TBTimer()
+    @ObservedObject var focus = PBFocus()
     @State private var buttonHovered = false
     @State private var activeChildView = ChildView.intervals
 
@@ -178,7 +195,7 @@ struct TBPopoverView: View {
                 case .intervals:
                     IntervalsView().environmentObject(timer)
                 case .settings:
-                    SettingsView().environmentObject(timer)
+                    SettingsView().environmentObject(timer).environmentObject(focus)
                 case .sounds:
                     SoundsView().environmentObject(timer.player)
                 }

@@ -14,6 +14,7 @@ class TBTimer: ObservableObject {
 
     private var stateMachine = TBStateMachine(state: .idle)
     public let player = TBPlayer()
+    public let focus = PBFocus()
     private var consecutiveWorkIntervals: Int = 0
     private var notificationCenter = TBNotificationCenter()
     private var finishTime: Date!
@@ -180,6 +181,7 @@ class TBTimer: ObservableObject {
         player.playWindup()
         player.startTicking()
         startTimer(seconds: workIntervalLength * 60)
+        focus.runShortcut()
     }
 
     private func onWorkFinish(context _: TBStateMachine.Context) {
@@ -188,6 +190,7 @@ class TBTimer: ObservableObject {
     }
 
     private func onWorkEnd(context _: TBStateMachine.Context) {
+        focus.runShortcut()
         player.stopTicking()
     }
 
