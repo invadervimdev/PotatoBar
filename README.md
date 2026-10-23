@@ -1,45 +1,23 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/ivoronin/TomatoBar/main/TomatoBar/Assets.xcassets/AppIcon.appiconset/icon_128x128%402x.png" width="128" height="128"/>
+    <img src="PotatoBar/Assets.xcassets/AppIcon.appiconset/icon_128x128%402x.png" alt="PotatoBar Icon" width="128" height="128"/>
 <p>
  
-<h1 align="center">TomatoBar</h1>
+<h1 align="center">PotatoBar</h1>
+
 <p align="center">
-<img src="https://img.shields.io/github/actions/workflow/status/ivoronin/TomatoBar/main.yml?branch=main"/> <img src="https://img.shields.io/github/downloads/ivoronin/TomatoBar/total"/> <img src="https://img.shields.io/github/v/release/ivoronin/TomatoBar?display_name=tag"/> <img src="https://img.shields.io/homebrew/cask/v/tomatobar"/>
+    <img src="screenshot.png" alt="PotatoBar Screenshot"/>
 </p>
 
-<img
-  src="https://github.com/ivoronin/TomatoBar/raw/main/screenshot.png?raw=true"
-  alt="Screenshot"
-  width="50%"
-  align="right"
-/>
-
 ## Overview
-Have you ever heard of Pomodoro? It’s a great technique to help you keep track of time and stay on task during your studies or work. Read more about it on <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Wikipedia</a>.
+PotatoBar is a customized version of the world's neatest Pomodor timer for the macOS menu bar, <a href="https://github.com/ivoronin/TomatoBar">TomatoBar</a>! Any and all credit for this tool should go over there.
 
-TomatoBar is world's neatest Pomodoro timer for the macOS menu bar. All the essential features are here - configurable
-work and rest intervals, optional sounds, discreet actionable notifications, global hotkey.
+## PotatoBar Features
 
-TomatoBar is fully sandboxed with no entitlements.
+### Shortcuts Integration
 
-Download the latest release <a href="https://github.com/ivoronin/TomatoBar/releases/latest/">here</a> or install using Homebrew:
-```
-brew install --cask tomatobar
-```
+If you create a shortcut in the <a href="https://support.apple.com/guide/shortcuts-mac/intro-to-shortcuts-apdf22b0444c/mac">Shortcuts</a> app, you can select in the settings and it will be called every time the work interval starts and stops. In this example shortcut below, I added a new focus setting called "PotatoBar", which will turn on when the work interval starts and stopped when the work interval ends.
 
-If the app doesn't start, install using the `--no-quarantine` flag:
-```
-brew install --cask --no-quarantine tomatobar
-```
-
-## Integration with other tools
-### Event log
-TomatoBar logs state transitions in JSON format to `~/Library/Containers/com.github.ivoronin.TomatoBar/Data/Library/Caches/TomatoBar.log`. Use this data to analyze your productivity and enrich other data sources.
-### Starting and stopping the timer
-TomatoBar can be controlled using `tomatobar://` URLs. To start or stop the timer from the command line, use `open tomatobar://startStop`.
-
-## Older versions
-Touch bar integration and older macOS versions (earlier than Big Sur) are supported by TomatoBar versions prior to 3.0
+![Shortcut Screenshot](screenshot_shortcut.png)
 
 ## Licenses
  - Timer sounds are licensed from buddhabeats

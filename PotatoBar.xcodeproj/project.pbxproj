@@ -25,11 +25,11 @@
 /* Begin PBXFileReference section */
 		4CC11A472B6A28500012E8EC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55F145A83089D7B6004D9315 /* Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Focus.swift; sourceTree = "<group>"; };
-		8A21B78827EE31A20009E5DB /* TomatoBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomatoBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A21B78827EE31A20009E5DB /* PotatoBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A21B78B27EE31A20009E5DB /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		8A21B78D27EE31A20009E5DB /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		8A21B78F27EE31A30009E5DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A21B79427EE31A30009E5DB /* TomatoBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TomatoBar.entitlements; sourceTree = "<group>"; };
+		8A21B79427EE31A30009E5DB /* PotatoBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PotatoBar.entitlements; sourceTree = "<group>"; };
 		8A9F700827EE396E0012A1EC /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		8A9F701827EE3DAF0012A1EC /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		8A9F701E27EE536D0012A1EC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		8A21B77F27EE31A20009E5DB = {
 			isa = PBXGroup;
 			children = (
-				8A21B78A27EE31A20009E5DB /* TomatoBar */,
+				8A21B78A27EE31A20009E5DB /* PotatoBar */,
 				8A21B78927EE31A20009E5DB /* Products */,
 				8A9F700D27EE3AED0012A1EC /* Frameworks */,
 			);
@@ -65,12 +65,12 @@
 		8A21B78927EE31A20009E5DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A21B78827EE31A20009E5DB /* TomatoBar.app */,
+				8A21B78827EE31A20009E5DB /* PotatoBar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8A21B78A27EE31A20009E5DB /* TomatoBar */ = {
+		8A21B78A27EE31A20009E5DB /* PotatoBar */ = {
 			isa = PBXGroup;
 			children = (
 				8A21B78B27EE31A20009E5DB /* App.swift */,
@@ -82,10 +82,10 @@
 				8A9F701E27EE536D0012A1EC /* Player.swift */,
 				8AA5B3F12812A74600BE1A6C /* Notifications.swift */,
 				8A21B78F27EE31A30009E5DB /* Assets.xcassets */,
-				8A21B79427EE31A30009E5DB /* TomatoBar.entitlements */,
+				8A21B79427EE31A30009E5DB /* PotatoBar.entitlements */,
 				8AA54347293094AB002A47FC /* Localizable.strings */,
 			);
-			path = TomatoBar;
+			path = PotatoBar;
 			sourceTree = "<group>";
 		};
 		8A9F700D27EE3AED0012A1EC /* Frameworks */ = {
@@ -98,9 +98,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A21B78727EE31A20009E5DB /* TomatoBar */ = {
+		8A21B78727EE31A20009E5DB /* PotatoBar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A21B79727EE31A30009E5DB /* Build configuration list for PBXNativeTarget "TomatoBar" */;
+			buildConfigurationList = 8A21B79727EE31A30009E5DB /* Build configuration list for PBXNativeTarget "PotatoBar" */;
 			buildPhases = (
 				8A21B78427EE31A20009E5DB /* Sources */,
 				8A21B78527EE31A20009E5DB /* Frameworks */,
@@ -111,14 +111,14 @@
 			);
 			dependencies = (
 			);
-			name = TomatoBar;
+			name = PotatoBar;
 			packageProductDependencies = (
 				8A74039F27FA19BB00E7F90B /* LaunchAtLogin */,
 				8AA5B3EA281295DB00BE1A6C /* KeyboardShortcuts */,
 				8A8CFE3F2821D8C300F9F303 /* SwiftState */,
 			);
 			productName = TomatoBar;
-			productReference = 8A21B78827EE31A20009E5DB /* TomatoBar.app */;
+			productReference = 8A21B78827EE31A20009E5DB /* PotatoBar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,14 +129,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 2710;
 				TargetAttributes = {
 					8A21B78727EE31A20009E5DB = {
 						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
-			buildConfigurationList = 8A21B78327EE31A20009E5DB /* Build configuration list for PBXProject "TomatoBar" */;
+			buildConfigurationList = 8A21B78327EE31A20009E5DB /* Build configuration list for PBXProject "PotatoBar" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -156,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A21B78727EE31A20009E5DB /* TomatoBar */,
+				8A21B78727EE31A20009E5DB /* PotatoBar */,
 			);
 		};
 /* End PBXProject section */
@@ -265,6 +265,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -284,6 +285,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -327,6 +329,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -339,6 +342,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -349,7 +353,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TomatoBar/TomatoBar.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = PotatoBar/PotatoBar.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -357,18 +362,19 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TomatoBar/Info.plist;
+				INFOPLIST_FILE = PotatoBar/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Ilya Voronin. All rights reserved. https://github.com/ivoronin/TomatoBar";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "https://github.com/invadervim/PotatoBar";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.ivoronin.TomatoBar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.invadervim.PotatoBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -384,7 +390,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TomatoBar/TomatoBar.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = PotatoBar/PotatoBar.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -392,18 +399,19 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TomatoBar/Info.plist;
+				INFOPLIST_FILE = PotatoBar/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Ilya Voronin. All rights reserved. https://github.com/ivoronin/TomatoBar";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "https://github.com/invadervim/PotatoBar";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.ivoronin.TomatoBar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.invadervim.PotatoBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -417,7 +425,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A21B78327EE31A20009E5DB /* Build configuration list for PBXProject "TomatoBar" */ = {
+		8A21B78327EE31A20009E5DB /* Build configuration list for PBXProject "PotatoBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A21B79527EE31A30009E5DB /* Debug */,
@@ -426,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A21B79727EE31A30009E5DB /* Build configuration list for PBXNativeTarget "TomatoBar" */ = {
+		8A21B79727EE31A30009E5DB /* Build configuration list for PBXNativeTarget "PotatoBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A21B79827EE31A30009E5DB /* Debug */,

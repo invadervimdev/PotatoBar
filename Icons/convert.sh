@@ -1,17 +1,17 @@
 #!/bin/bash -e
-ASSETS_PATH=../TomatoBar/Assets.xcassets
-APPICON_SRC=TomatoBar.png
+ASSETS_PATH=../PotatoBar/Assets.xcassets
+APPICON_SRC=PotatoBar.png
 APPICON_ICONSET=${ASSETS_PATH}/AppIcon.appiconset
-BARICON_SRC=tomato-filled.png
+BARICON_SRC=potato-filled.png
 BARICON_ICONSET_IDLE=${ASSETS_PATH}/BarIconIdle.imageset
 BARICON_ICONSET_WORK=${ASSETS_PATH}/BarIconWork.imageset
 BARICON_ICONSET_SHORT_REST=${ASSETS_PATH}/BarIconShortRest.imageset
 BARICON_ICONSET_LONG_REST=${ASSETS_PATH}/BarIconLongRest.imageset
 BARICON_FONT_NAME=SF-Compact-Rounded-Black
 BARICON_FONT_SIZE_BASE=8
-BARICON_TEXT_OFFSET_BASE=3
+BARICON_TEXT_OFFSET_BASE=2
 
-CONVERT="convert -verbose -background none +repage"
+CONVERT="magick convert -verbose -background none +repage"
 
 if [ "$1" == "appicon" ]; then
     ${CONVERT} -resize '!16x16' ${APPICON_SRC} ${APPICON_ICONSET}/icon_16x16.png
@@ -33,7 +33,7 @@ function convert_baricon() {
     for SCALE in $(seq 1 3); do
         IMAGE_SIZE="!$((16*SCALE))x$((16*SCALE))"
         POINT_SIZE=$((BARICON_FONT_SIZE_BASE*SCALE))
-        OFFSET_X=1
+        OFFSET_X=-1
         OFFSET_Y=$((BARICON_TEXT_OFFSET_BASE*SCALE))
         SCALE_NAME="@${SCALE}x"
         if [ ${SCALE} -eq 1 ]; then
