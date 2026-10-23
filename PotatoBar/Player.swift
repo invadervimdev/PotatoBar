@@ -1,68 +1,102 @@
 import AVFoundation
 import SwiftUI
+import AppKit
 
-class TBPlayer: ObservableObject {
-    private var windupSound: AVAudioPlayer
-    private var dingSound: AVAudioPlayer
-    private var tickingSound: AVAudioPlayer
-
-    @AppStorage("windupVolume") var windupVolume: Double = 1.0 {
+class PBPlayer: ObservableObject {
+    private var startWorkPlayer: AVAudioPlayer
+    private var endWorkPlayer: AVAudioPlayer
+    private var workingPlayer: AVAudioPlayer
+    
+    @AppStorage("startWorkSound") var startWorkSound: String = "windup" {
         didSet {
-            setVolume(windupSound, windupVolume)
+            setStartWorkPlayer()
+            playStartWork()
         }
     }
-    @AppStorage("dingVolume") var dingVolume: Double = 1.0 {
+    @AppStorage("endWorkSound") var endWorkSound: String = "ding" {
         didSet {
-            setVolume(dingSound, dingVolume)
-        }
+            setEndWorkPlayer()
+            playEndWork() }
     }
-    @AppStorage("tickingVolume") var tickingVolume: Double = 1.0 {
-        didSet {
-            setVolume(tickingSound, tickingVolume)
-        }
+    
+    @AppStorage("startWorkVolume") var startWorkVolume: Double = 1.0 {
+        didSet { updateVolumes() }
     }
-
-    private func setVolume(_ sound: AVAudioPlayer, _ volume: Double) {
-        sound.setVolume(Float(volume), fadeDuration: 0)
+    @AppStorage("endWorkVolume") var endWorkVolume: Double = 1.0 {
+        didSet { updateVolumes() }
     }
-
+    @AppStorage("workingVolume") var workingVolume: Double = 1.0 {
+        didSet { updateVolumes() }
+    }
+    
+    let mp3Sounds = ["attention", "bell", "chime", "correct", "futuristic", "level-up"]
+    let wavSounds = ["ding", "ticking", "windup"]
+    
+    var allAvailableSounds: [String] {
+        return (mp3Sounds + wavSounds).sorted()
+    }
+    
     init() {
-        let windupSoundAsset = NSDataAsset(name: "windup")
-        let dingSoundAsset = NSDataAsset(name: "ding")
-        let tickingSoundAsset = NSDataAsset(name: "ticking")
-
-        let wav = AVFileType.wav.rawValue
+        let placeholder = NSDataAsset(name: "wav-ding")!.data
         do {
-            windupSound = try AVAudioPlayer(data: windupSoundAsset!.data, fileTypeHint: wav)
-            dingSound = try AVAudioPlayer(data: dingSoundAsset!.data, fileTypeHint: wav)
-            tickingSound = try AVAudioPlayer(data: tickingSoundAsset!.data, fileTypeHint: wav)
+            workingPlayer = try AVAudioPlayer(data: placeholder)
+            startWorkPlayer = try AVAudioPlayer(data: placeholder)
+            endWorkPlayer = try AVAudioPlayer(data: placeholder)
         } catch {
-            fatalError("Error initializing players: \(error)")
+            fatalError("Failed to init placeholder players")
         }
-
-        windupSound.prepareToPlay()
-        dingSound.prepareToPlay()
-        tickingSound.numberOfLoops = -1
-        tickingSound.prepareToPlay()
-
-        setVolume(windupSound, windupVolume)
-        setVolume(dingSound, dingVolume)
-        setVolume(tickingSound, tickingVolume)
+        
+        workingPlayer = preparePlayer(soundName: "ticking")
+        workingPlayer.numberOfLoops = -1
+        
+        updateVolumes()
     }
-
-    func playWindup() {
-        windupSound.play()
+    
+    func playStartWork() {
+        startWorkPlayer.play()
     }
-
-    func playDing() {
-        dingSound.play()
+    
+    func playEndWork() {
+        endWorkPlayer.play()
     }
-
-    func startTicking() {
-        tickingSound.play()
+    
+    func playWorking() {
+        workingPlayer.play()
     }
-
-    func stopTicking() {
-        tickingSound.stop()
+    
+    func stopWorking() {
+        workingPlayer.stop()
+    }
+    
+    private func setStartWorkPlayer() {
+        startWorkPlayer = preparePlayer(soundName: startWorkSound)
+        startWorkPlayer.prepareToPlay()
+    }
+    private func setEndWorkPlayer() {
+        endWorkPlayer = preparePlayer(soundName: endWorkSound)
+        endWorkPlayer.prepareToPlay()
+    }
+    
+    private func preparePlayer(soundName: String) -> AVAudioPlayer {
+        let assetName: String = mp3Sounds.contains(soundName) ? "mp3-\(soundName)" : "wav-\(soundName)"
+        
+        let fileType: AVFileType = mp3Sounds.contains(soundName) ? .mp3 : .wav
+        
+        guard let playerAsset = NSDataAsset(name: assetName) else {
+            fatalError("Failed to find asset named: \(soundName)")
+        }
+        
+        
+        do {
+            return try AVAudioPlayer(data: playerAsset.data, fileTypeHint: fileType.rawValue)
+        } catch {
+            fatalError("Error initializing player for \(soundName): \(error)")
+        }
+    }
+    
+    private func updateVolumes() {
+        startWorkPlayer.setVolume(Float(startWorkVolume), fadeDuration: 0)
+        endWorkPlayer.setVolume(Float(endWorkVolume), fadeDuration: 0)
+        workingPlayer.setVolume(Float(workingVolume), fadeDuration: 0)
     }
 }

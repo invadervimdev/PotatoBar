@@ -19,5 +19,21 @@ If you create a shortcut in the <a href="https://support.apple.com/guide/shortcu
 
 ![Shortcut Screenshot](screenshot_shortcut.png)
 
+### More sounds!
+
+Change the "start work" and "end work" sounds in the Sounds tab.
+
+![Shortcut Screenshot](screenshot_sounds.png)
+
+#### Sound sources:
+
+- [attention](https://pixabay.com/sound-effects/musical-attention-chime-123107/)
+- [bell](https://pixabay.com/sound-effects/film-special-effects-bell-sound-effect-613873/)
+- [chime](https://pixabay.com/sound-effects/film-special-effects-chime-sound-7143/)
+- [correct](https://pixabay.com/sound-effects/technology-correct-472358/)
+- [futuristic](https://pixabay.com/sound-effects/technology-deep-ui-chime-585839/)
+- [level-up](https://pixabay.com/sound-effects/film-special-effects-level-up-191997/)
+
+
 ## Licenses
  - Timer sounds are licensed from buddhabeats

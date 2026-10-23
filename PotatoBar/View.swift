@@ -118,7 +118,7 @@ private struct VolumeSlider: View {
 }
 
 private struct SoundsView: View {
-    @EnvironmentObject var player: TBPlayer
+    @EnvironmentObject var player: PBPlayer
 
     private var columns = [
         GridItem(.flexible()),
@@ -126,16 +126,44 @@ private struct SoundsView: View {
     ]
 
     var body: some View {
-        LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
-            Text(NSLocalizedString("SoundsView.isWindupEnabled.label",
-                                   comment: "Windup label"))
-            VolumeSlider(volume: $player.windupVolume)
-            Text(NSLocalizedString("SoundsView.isDingEnabled.label",
-                                   comment: "Ding label"))
-            VolumeSlider(volume: $player.dingVolume)
-            Text(NSLocalizedString("SoundsView.isTickingEnabled.label",
-                                   comment: "Ticking label"))
-            VolumeSlider(volume: $player.tickingVolume)
+        Grid(alignment: .leading) {
+            GridRow {
+                Text(NSLocalizedString("SoundsView.isStartWorkSoundEnabled.label",
+                                       comment: "Start work sound label"))
+                VolumeSlider(volume: $player.startWorkVolume)
+            }
+            GridRow {
+                Picker("", selection: $player.startWorkSound) {
+                    Text("None (Disabled)").tag("")
+
+                    ForEach(player.allAvailableSounds, id: \.self) { sound in
+                        Text(sound).tag(sound)
+                    }
+                }
+                .labelsHidden()
+                .gridCellColumns(2)
+            }
+            GridRow {
+                Text(NSLocalizedString("SoundsView.isEndWorkSoundEnabled.label",
+                                       comment: "End work sound label"))
+                VolumeSlider(volume: $player.endWorkVolume)
+            }
+            GridRow {
+                Picker("", selection: $player.endWorkSound) {
+                    Text("None (Disabled)").tag("")
+
+                    ForEach(player.allAvailableSounds, id: \.self) { sound in
+                        Text(sound).tag(sound)
+                    }
+                }
+                .labelsHidden()
+                .gridCellColumns(2)
+            }
+            GridRow {
+                Text(NSLocalizedString("SoundsView.isTickingEnabled.label",
+                                       comment: "Ticking label"))
+                VolumeSlider(volume: $player.workingVolume)
+            }
         }.padding(4)
         Spacer().frame(minHeight: 0)
     }

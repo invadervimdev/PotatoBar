@@ -13,7 +13,7 @@ class TBTimer: ObservableObject {
     @AppStorage("overrunTimeLimit") var overrunTimeLimit = -60.0
 
     private var stateMachine = TBStateMachine(state: .idle)
-    public let player = TBPlayer()
+    public let player = PBPlayer()
     public let shortcuts = PBShortcuts()
     private var consecutiveWorkIntervals: Int = 0
     private var notificationCenter = TBNotificationCenter()
@@ -178,20 +178,20 @@ class TBTimer: ObservableObject {
 
     private func onWorkStart(context _: TBStateMachine.Context) {
         TBStatusItem.shared.setIcon(name: .work)
-        player.playWindup()
-        player.startTicking()
+        player.playStartWork()
+        player.playWorking()
         startTimer(seconds: workIntervalLength * 60)
         shortcuts.runShortcut()
     }
 
     private func onWorkFinish(context _: TBStateMachine.Context) {
         consecutiveWorkIntervals += 1
-        player.playDing()
+        player.playEndWork()
     }
 
     private func onWorkEnd(context _: TBStateMachine.Context) {
         shortcuts.runShortcut()
-        player.stopTicking()
+        player.stopWorking()
     }
 
     private func onRestStart(context _: TBStateMachine.Context) {
