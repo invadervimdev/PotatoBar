@@ -56,9 +56,9 @@ private struct IntervalsView: View {
 
 private struct SettingsView: View {
     @EnvironmentObject var timer: TBTimer
-    @EnvironmentObject var focus: PBFocus
+    @EnvironmentObject var shortcuts: PBShortcuts
     @ObservedObject private var launchAtLogin = LaunchAtLogin.observable
-    @State private var shortcutsList: [String] = PBFocus.fetchInstalledShortcuts()
+    @State private var shortcutsList: [String] = PBShortcuts.fetchInstalledShortcuts()
 
     var body: some View {
         VStack {
@@ -71,7 +71,7 @@ private struct SettingsView: View {
                                    comment: "Shortcuts script label"))
             .frame(maxWidth: .infinity, alignment: .leading)
             Form {
-                Picker("", selection: $focus.shortcutsScript) {
+                Picker("", selection: $shortcuts.shortcutsScript) {
                     Text("None (Disabled)").tag("")
                     
                     ForEach(shortcutsList, id: \.self) { name in
@@ -147,7 +147,7 @@ private enum ChildView {
 
 struct TBPopoverView: View {
     @ObservedObject var timer = TBTimer()
-    @ObservedObject var focus = PBFocus()
+    @ObservedObject var shortcuts = PBShortcuts()
     @State private var buttonHovered = false
     @State private var activeChildView = ChildView.intervals
 
@@ -195,7 +195,7 @@ struct TBPopoverView: View {
                 case .intervals:
                     IntervalsView().environmentObject(timer)
                 case .settings:
-                    SettingsView().environmentObject(timer).environmentObject(focus)
+                    SettingsView().environmentObject(timer).environmentObject(shortcuts)
                 case .sounds:
                     SoundsView().environmentObject(timer.player)
                 }

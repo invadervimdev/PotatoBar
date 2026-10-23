@@ -1,18 +1,17 @@
 //
-//  Focus.swift
+//  Shortcuts.swift
 //
-//  Manages the Focus state and list.
+//  Let's the user select a shortcut (from the Shortcuts app) that lets them
+//  handle when the work interval starts and stops.
 //
 
-//import Foundation
-// import SwiftState
 import SwiftUI
 import OSLog
 
-class PBFocus: ObservableObject {
+class PBShortcuts: ObservableObject {
     @AppStorage("shortcutsScript") var shortcutsScript: String = ""
     
-    private let logger = Logger(subsystem: "com.tomatoBar.focus", category: "PBFocus")
+    private let logger = Logger(subsystem: "com.tomatoBar.shortcuts", category: "PBShortcuts")
     
     func runShortcut() {
         // Only run if the toggle is on and a shortcut has been selected
